@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <title>Bar do Sérgio - Acompanhe seu Pedido</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <nav>
+        <a href="menu.html">INÍCIO</a>
+             <a href="index.html">CARDÁPIO</a>
+            <a href="pedidos.html">FAÇA O SEU PEDIDO</a>
+            <a href="feedback.html">DÊ O SEU FEEDBACK</a>
+
+        </nav>
+    </header>
+
+    <header>
+        <img src="Images/Peça já o seu!! (1).png" alt="Imagem Moda da Casa">
+    </header>
+
+  <div class="container">
+    <h1>Digite o código do seu pedido</h1>
+    <form id="trackingForm">
+        <label for="orderCode">Código do Pedido:</label>
+        <input type="text" id="orderCode" name="orderCode" placeholder="Ex: PED12345" required>
+        <button type="submit">Rastrear Pedido</button>
+    </form>
+
+    <div class="result" id="result">
+        <p id="statusText"></p>
+        <p id="expectedDelivery"></p>
+    </div>
+</div>
+
+<script>
+    // Simulando dados de pedidos
+    const pedidos = {
+        "PED12345": {
+            status: "Em preparação",
+            entrega: "Em até 30 minutos",
+        },
+        "PED67890": {
+            status: "A caminho",
+            entrega: "Em até 15 minutos",
+        },
+        "PED54321": {
+            status: "Entregue",
+            entrega: "Pedido entregue com sucesso!",
+        }
+    };
+
+    // Função para processar o formulário
+    document.getElementById("trackingForm").addEventListener("submit", function(e) {
+        e.preventDefault(); // Evita o envio do formulário
+        const orderCode = document.getElementById("orderCode").value.trim().toUpperCase();
+        const resultDiv = document.getElementById("result");
+        const statusText = document.getElementById("statusText");
+        const expectedDelivery = document.getElementById("expectedDelivery");
+
+        // Verificar se o código do pedido existe
+        if (pedidos[orderCode]) {
+            resultDiv.style.display = "block";
+            statusText.textContent = `Status: ${pedidos[orderCode].status}`;
+            expectedDelivery.textContent = `Entrega: ${pedidos[orderCode].entrega}`;
+            statusText.classList.remove("error");
+            statusText.classList.add("success");
+        } else {
+            resultDiv.style.display = "block";
+            statusText.textContent = "Código de pedido não encontrado. Por favor, verifique o código e tente novamente.";
+            expectedDelivery.textContent = "";
+            statusText.classList.remove("success");
+            statusText.classList.add("error");
+        }
+    });
+</script>
+    <footer>
+       <p>&copy; 2024 Bar do Sérgio. Todos os direitos reservados.</p>
+    </footer>
+</body>
+</html>

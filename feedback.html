@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Feedback</title>
+    <link rel="stylesheet" href="styles.css">
+    <script>
+      function processarFormulario(event) {
+        event.preventDefault(); // Impede o envio do formulário, para evitar o reload da página
+
+        // Captura os dados do formulário
+        const nome = document.querySelector('input[name="nome"]').value;
+        const sobrenome = document.querySelector('input[name="sobrenome"]').value;
+        const atendimento = document.querySelector('input[name="Conseguimos atender suas necessidades ?"]:checked').value;
+        const nota = document.querySelector('input[name="Qual nota você da para o nosso atendimento"]:checked').value;
+        const recomendacao = document.querySelector('input[name="Voce recomendaria o nosso site para alguem?"]:checked').value;
+        const melhoria = document.querySelector('textarea[name="Como podemos melhorar?"]').value;
+
+        // Redireciona para a página de agradecimento após 1 segundo
+        setTimeout(function() {
+          window.location.href = 'feedback_agradecimento.html'; // Redireciona para a página de agradecimento
+        }, 700); // Atraso de 1 segundo para o alerta ser exibido antes do redirecionamento
+      }
+    </script>
+  </head>
+  <body>
+
+    <header>
+      <nav>
+        <a href="menu.html">INÍCIO</a>
+        <a href="index.html">CARDÁPIO</a>
+        <a href="pedidos.html">FAÇA O SEU PEDIDO</a>
+        <a href="rastreio.html">ACOMPANHE O SEU PEDIDO</a>
+      </nav>
+    </header>
+    
+    <header>
+      <img src="Images/Peça já o seu!! (2).png" alt="Imagem Moda da Casa">
+    </header>
+
+    <h1>Queremos ouvir você!</h1>
+    <form onsubmit="processarFormulario(event)">
+      <p>
+        <label>Nome: </label>
+        <input type="text" name="nome" required>
+        <br>
+        <label>Sobrenome: </label>
+        <input type="text" name="sobrenome" required>
+        <br>
+        <label>Conseguimos atender suas necessidades?: </label>
+        <input type="radio" value="Sim" name="Conseguimos atender suas necessidades ?" required> Sim
+        <br>
+        <input type="radio" value="Não" name="Conseguimos atender suas necessidades ?" required> Não
+        <br>
+        <br>
+        <label>Qual nota você dá para o nosso atendimento?</label><br>
+        <input type="radio" name="Qual nota você da para o nosso atendimento" value="1 a 2" required>1 a 2 <br>
+        <input type="radio" name="Qual nota você da para o nosso atendimento" value="3 a 4" required>3 a 4 <br>
+        <input type="radio" name="Qual nota você da para o nosso atendimento" value="5 a 6" required>5 a 6 <br>
+        <input type="radio" name="Qual nota você da para o nosso atendimento" value="7 a 8" required>7 a 8 <br>
+        <input type="radio" name="Qual nota você da para o nosso atendimento" value="9 a 10" required>9 a 10 <br>
+        <br>
+        <label>Você recomendaria o nosso site para alguém?</label>
+        <input type="radio" name="Voce recomendaria o nosso site para alguem?" value="Sim" required> Sim <br>
+        <input type="radio" name="Voce recomendaria o nosso site para alguem?" value="Não" required> Não <br> <br>
+        <label>Como podemos melhorar?</label> <br>
+        <textarea name="Como podemos melhorar?" rows="4" cols="20">Deixe sua ideia aqui!</textarea> <br>
+        <br>
+        <button type="submit">Enviar</button><br>
+      </p>
+    </form>
+
+    <footer>
+      <p>&copy; 2024 Bar do Sérgio. Todos os direitos reservados.</p>
+    </footer>
+
+  </body>
+</html>

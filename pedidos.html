@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pedido</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <nav>
+            <a href="index.html">INÍCIO</a>
+            <a href="index.html">CARDÁPIO</a> 
+            <a href="feedback.html">DÊ O SEU FEEDBACK</a>
+            <a href="rastreio.html">ACOMPANHE O SEU PEDIDO</a>
+        </nav>
+    </header>
+
+    <header>
+        <img src="Images/Peça já o seu!!.png" alt="Imagem Moda da Casa">
+    </header>
+
+    <h1>A melhor escolha!</h1>
+
+    <form id="pedidoForm" action="pedidosfeito.html" method="GET">
+        <p>
+            <!-- Seção de Lanches -->
+            <label for="lanches">Lanches:</label><br>
+            <input type="checkbox" name="lanches" value="Hamburguer"> Hamburguer <br>
+            <input type="checkbox" name="lanches" value="Misto Quente"> Misto Quente <br>
+            <input type="checkbox" name="lanches" value="Moda da Casa"> Moda da Casa <br>
+            <input type="checkbox" name="lanches" value="x-burguer"> x-burguer <br>
+            <input type="checkbox" name="lanches" value="x-bacon"> x-bacon <br>
+            <input type="checkbox" name="lanches" value="x-egg"> x-egg <br>
+            <input type="checkbox" name="lanches" value="x-Egg Bacon"> x-Egg Bacon <br>
+            <input type="checkbox" name="lanches" value="x-Frango"> x-Frango <br>
+            <input type="checkbox" name="lanches" value="x-Presunto"> x-Presunto <br>
+            <input type="checkbox" name="lanches" value="x-Salada"> x-Salada <br>
+            <input type="checkbox" name="lanches" value="x-Tudo"> x-Tudo <br><br>
+
+            <!-- Seção de Bebidas -->
+            <label for="bebidas">Bebidas:</label><br>
+            <input type="checkbox" name="bebidas" value="Suco Polpa"> Suco Polpa <br>
+            <input type="checkbox" name="bebidas" value="Suco de Açaí"> Suco de Açaí <br>
+            <input type="checkbox" name="bebidas" value="Brahma Chopinho 300 ml"> Brahma Chopinho 300 ml <br>
+            <input type="checkbox" name="bebidas" value="Coca Cola 1,5 Litros"> Coca Cola 1,5 Litros <br>
+            <input type="checkbox" name="bebidas" value="Coca Cola 2 Litros"> Coca Cola 2 Litros <br>
+            <input type="checkbox" name="bebidas" value="Cola Cola 500 ml"> Cola Cola 500 ml <br>
+            <input type="checkbox" name="bebidas" value="Cola Cola Lata"> Cola Cola Lata <br>
+            <input type="checkbox" name="bebidas" value="Guaraná 1,5 Litros"> Guaraná 1,5 Litros <br>
+            <input type="checkbox" name="bebidas" value="Guaraná Antártica 2 Litros"> Guaraná Antártica 2 Litros <br>
+            <input type="checkbox" name="bebidas" value="Guaraná Antártica Lata"> Guaraná Antártica Lata <br>
+            <input type="checkbox" name="bebidas" value="Guaraná Antártica 600 ml"> Guaraná Antártica 600 ml <br><br>
+
+            <!-- Endereço do cliente -->
+            <label for="bairro">Bairro:</label>
+            <input type="text" name="bairro" id="bairro" required><br><br>
+
+            <label for="rua">Rua e número de residência:</label>
+            <input type="text" name="rua" id="rua" required><br><br>
+
+            <!-- Área de residência -->
+            <label for="area">Em que área você reside?</label><br>
+            <input type="radio" value="Rural" name="area" id="area_rural" required> Rural<br>
+            <input type="radio" value="Urbana" name="area" id="area_urbana" required> Urbana<br><br>
+
+            <!-- Tipo de moradia -->
+            <label for="tipo_moradia">Tipo de moradia:</label><br>
+            <input type="radio" value="Apartamento" name="tipo_moradia" id="tipo_moradia_apartamento" required> Apartamento<br>
+            <input type="radio" value="Casa" name="tipo_moradia" id="tipo_moradia_casa" required> Casa<br><br>
+
+            <!-- Observações adicionais -->
+            <label for="observacoes">Alguma observação?</label><br>
+            <textarea name="observacoes" id="observacoes" rows="4" cols="20">Observações aqui!</textarea><br><br>
+
+            <button type="submit">Enviar</button><br><br>
+        </p>
+    </form>
+
+    <footer>
+        <p>&copy; 2024 Bar do Sérgio. Todos os direitos reservados.</p>
+    </footer>
+
+    <script>
+        // Impede o envio automático do formulário, apenas redireciona para a página pedidosfeito.html
+        document.getElementById('pedidoForm').addEventListener('submit', function(event) {
+            event.preventDefault(); // Impede o comportamento padrão de envio do formulário
+            window.location.href = 'pedidosfeito.html'; // Redireciona para pedidosfeito.html
+        });
+    </script>
+</body>
+</html>
